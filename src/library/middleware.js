@@ -33,8 +33,6 @@ exports.socketioMiddleware = (socket, next) => {
 		
 	var decoded=jwt.verify(token, config.secret);
 	} catch (error) {
-		console.log('++++++++++++++++++ ' , error);
-		
 	}
 	if (decoded == undefined) {
 		return next(new Error(exceptionObj("Failed to authenticate token.")))

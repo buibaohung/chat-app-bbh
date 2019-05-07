@@ -248,9 +248,10 @@ class MainLayout extends Component {
         // x.scrollTop = x.scrollHeight;
         this.handleScroll()
       })
+      this.handleSeen()
     };
 
-    onFocus = () => {
+    handleSeen = () => {
       getAllChat().then((res)=>{
           this.setState({chatsData: res})
           let dataTemp = this.state.chatsData
@@ -263,14 +264,14 @@ class MainLayout extends Component {
           if(lastIDChat){
               this.socket.emit("isSeen", {chat_id : lastIDChat});
           }
-          console.log("asdasd", lastIDChat)
+          console.log("lastIDChat", lastIDChat)
       })
     }
 
     onSubmit(e) {
       if(this.state.message){
           this.socket.emit("newMessage", {content : this.state.message, receiver: this.state.choose._id});
-          console.log('Hieu dep trai'+this.state.choose.username);
+          console.log('receiver'+this.state.choose.username);
 
           var chat = {sender:localStorage.getItem('userID'), receiver:this.state.choose._id, content:this.state.message, _created:Date.now()};
           var temp = this.state.chatsData;
@@ -288,11 +289,11 @@ class MainLayout extends Component {
       this.socket = io("https://chat-app-bbh.herokuapp.com/chat", {"query":{"token":token}});
       this.socket.on('newMessage', (response) => {
         this.setState({seen: ''})
-        console.log("Hieu Ml",response)
+        console.log("Message",response)
           this.setState({chatsData: response})
       }); //hear newMessage
       this.socket.on('isSeen', (response) => {
-          console.log("sda",response)
+          console.log("response",response)
           var dataTemp= [];
           response.map(m=>{
               if(m.sender ==localStorage.getItem('userID') && m.receiver == this.state.choose._id) dataTemp.push(m)
@@ -305,8 +306,6 @@ class MainLayout extends Component {
         }); //isSeen
       }
     render(){
-
-        
 
         console.log(this.props.userData.users)
 
@@ -353,7 +352,7 @@ class MainLayout extends Component {
                 {
                   this.state.tabuser === 2 &&(
                     this.props.userData.users.map((value,i) => (
-                      <ListItem key={value}  onClick={ () => this.handleClickUser(value,i)}  button>
+                      <ListItem key={value}  onClick={ () => this.handleClickUser(value,i)} button>
                         <ListItemAvatar>
                           <Avatar
                             alt={`Avatar n°${i + 1}`}
@@ -397,7 +396,7 @@ class MainLayout extends Component {
                         </Toolbar>
                       </AppBar>
 
-                      <Paper  style={styles.chatbox} elevation={1} id='boxMessage' > 
+                      <Paper  style={styles.chatbox} elevation={1} id='boxMessage' onMouseEnter={this.handleSeen} > 
                           {
                             this.state.chatsData.map(m => {
                                 if((m.receiver == this.state.choose._id && m.sender == localStorage.getItem('userID'))) 
@@ -422,7 +421,7 @@ class MainLayout extends Component {
                           label="Nhập tin nhắn"
                           value={this.state.message}
                           onChange={e => this.setState({message: e.target.value})}
-                          onFocus={this.onFocus}
+                          onFocus={this.handleSeen}
                         />                 
                         <button style={styles.button}>
                           <Enter />                          
@@ -447,16 +446,13 @@ class MainLayout extends Component {
       { temp = styles.othersMember }
       return (
         <div style={temp}  >
-          <Tooltip title={_created}>
-            <div>
+          <Tooltip title={_created}  >
               <div style={styles.containsMessage}>
                 <div style={styles.username}>
                   {name}
                 </div>
-
                 <div style={styles.message}>{content}</div>
               </div>
-            </div>
           </Tooltip>
         </div>
       );
