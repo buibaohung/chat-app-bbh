@@ -285,7 +285,7 @@ class MainLayout extends Component {
 
     componentWillMount() {
       let token = localStorage.getItem('userToken')
-      this.socket = io("http://localhost:3000/chat", {"query":{"token":token}});
+      this.socket = io("https://chat-app-bbh.herokuapp.com/chat", {"query":{"token":token}});
       this.socket.on('newMessage', (response) => {
         this.setState({seen: ''})
         console.log("Hieu Ml",response)
