@@ -34,52 +34,50 @@ let styles = {
     display:"inline-block",
     backgroundColor: "#f2f2f2",
     height: "calc(100vh)",
-    width: "calc(75vw - 1px)",
+    width: "calc(75vw - 3px)",
     verticalAlign: "top",
   },
   
+
+  root: {
+    width: '100%',
+    backgroundColor:'#ffffff',
+  },
+
+  search: {
+    backgroundColor: '#ffffff',
+    width:"100%",
+    margin: "10px 0px",
+  },
+
   leftpage:{
     position: 'relative',
     display:"inline-block",
     backgroundColor: "#fcfcfc",
     height: "calc(100vh)",
     width: "25vw",
-    verticalAlign: "top",
     borderRight:"1px solid #cccccc",
-  },
-
-  root: {
-    width: '100%',
-    maxWidth: "25vw",
-    backgroundColor:'#ffffff',
-    top:20,
   },
 
   divappbar: {
     flexGrow: 1,
-    margin: "20px 20px",
+    margin: "10px 20px",
 
   },
 
   appbar: {
     backgroundColor: '#d9d9d9',
-    height: "4vw",
+    height: "60px",
     flexGrow: 1,
   },
+
   chatbox: {
     backgroundColor: '#ffffff',
-    height: "35vw",
+    height: "calc(100vh - 220px)",
     margin: "10px 10px",
     flexGrow: 1,
     padding: 20,
     overflow: 'auto',
-  },
-
-  search: {
-    backgroundColor: '#ffffff',
-    width:"25vw",
-    top:28,
-    height: "4vw"
   },
   
   onappbar: {
@@ -109,7 +107,6 @@ let styles = {
     backgroundColor: '#ffffff',
     width:'calc(100% - 150px)',
     bottom: 0,
-   // position: "absolute",
   },
 
   signout:{
@@ -119,7 +116,7 @@ let styles = {
     position: "absolute",
     margin: "20px 20px",
   },
-  //////////
+
   seen:{
     display: 'block',
     color: '#d10c1c',
@@ -128,16 +125,20 @@ let styles = {
     marginLeft: '1100',
     textAlign: 'right',
   },
+
   othersMember:{
     marginTop: '10px',
   },
+  
   currentMember:{
     textAlign: 'right',
     marginTop: '10px',
   },
+
   containsMessage:{
     display: 'inline-block',
   },
+
   username:{
     display: 'block',
     color: '#3e64a3',
@@ -145,6 +146,7 @@ let styles = {
     paddingBottom: '4px',
     fontWeight: 'bold',
   },
+
   message:{
     padding: '10px',
     maxƯidth: '400px',

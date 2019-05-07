@@ -22,7 +22,7 @@ let styles = {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: "92vh",
+        minHeight: 400,
     },
 
     button:{
@@ -46,45 +46,48 @@ let styles = {
     },
     above:{
         textAlign:'center' ,
+        marginTop: 100,
     },
     login: {
-        top: 50,
-        margin: "10px 30px",
+        // margin: "10px 30px",
+        margin: "0 10px",
         color:"#ffffff",
         backgroundColor:'#2765aa',
-        width : '15vw',
+        width : 200,
         fontSize: 20,
         fontWeight: 'bold',
     },
 
     logins: {
-        top: 175,
-        margin: "10px 30px",
+        margin: 'auto',
         color:"#2765aa",
         backgroundColor:'#ffffff',
         width : '25vw',
         fontSize: 20,
         fontWeight: 'bold',
+        display: "block",
     },
 
     register: {
-        top: 50,
-        margin: "10px 30px",
+        margin: "0 10px",
+        margin: 'auto',
         color:"#2765aa",
         backgroundColor:'#ffffff',
-        width : '15vw',
+        width : 200,
         fontSize: 20,
         fontWeight: 'bold',
     },
 
     registers: {
-        top: 100,
-        margin: "10px 30px",
+        // top: 100,
+        // margin: "10px 30px",
+        margin: 'auto',
         color:"#ffffff",
         backgroundColor:'#2765aa',
         width : '25vw',
         fontSize: 20,
         fontWeight: 'bold',
+        display: "block",
     },
 
     textfield: {
@@ -191,7 +194,6 @@ class Login extends Component {
                             Đăng ký
                         </Fab>
                     </div> 
-                    <div style={styles.containers} >
                     {
                         this.state.tab === 1 && (
                             <div  class="imagesss"> </div>
@@ -199,123 +201,124 @@ class Login extends Component {
                     }
                     {
                         this.state.tab === 2 && (
-                           <div style={styles.containers}> 
-                                <TextField
-                                style={styles.textfield}
-                                id="outlined-adornment-username"
-                                variant="outlined"
-                                label="Tên đăng nhập"
-                                value={this.state.username}
-                                onChange={this.handleChange('username')}  
-                                />
+                            <div>
+                                <div style={styles.containers}> 
+                                    <TextField
+                                        style={styles.textfield}
+                                        id="outlined-adornment-username"
+                                        variant="outlined"
+                                        label="Tên đăng nhập"
+                                        value={this.state.username}
+                                        onChange={this.handleChange('username')}  
+                                    />
 
-                                <TextField
-                                style={styles.textfield}
-                                id="outlined-adornment-password"
-                                variant="outlined"
-                                type={this.state.showPassword ? 'text' : 'password'}
-                                label="Mật khẩu"
-                                value={this.state.password}
-                                onChange={this.handleChange('password')}
-                                InputProps={{
-                                    endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                        aria-label="Toggle password visibility"
-                                        onClick={this.handleClickShowPassword}
-                                        >
-                                        {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                    ),
-                                }}
-                                />
-
+                                    <TextField
+                                        style={styles.textfield}
+                                        id="outlined-adornment-password"
+                                        variant="outlined"
+                                        type={this.state.showPassword ? 'text' : 'password'}
+                                        label="Mật khẩu"
+                                        value={this.state.password}
+                                        onChange={this.handleChange('password')}
+                                        InputProps={{
+                                            endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                aria-label="Toggle password visibility"
+                                                onClick={this.handleClickShowPassword}
+                                                >
+                                                {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                            ),
+                                        }}
+                                        />
+                                </div>
                                 <Fab variant="extended"
-                                 aria-label="Delete"
-                                 style={styles.logins}  
-                                 onClick={this.onClickSignin}
-                                 disabled={this.props.loginData.startLogin}
+                                    aria-label="Delete"
+                                    style={styles.logins}  
+                                    onClick={this.onClickSignin}
+                                    disabled={this.props.loginData.startLogin}
                                 >
                                     Đăng nhập
-                                </Fab>  
-
-                            </div>
+                                </Fab>
+                           </div>
                         )
                     }
                     {
                         this.state.tab === 3 && (
-                            <div style={styles.containers} > 
-                                <TextField
-                                style={styles.textfield}
-                                id="outlined-adornment-phonenumber"
-                                variant="outlined"
-                                label="Số điện thoại"
-                                value={this.state.phonenumber}
-                                onChange={this.handleChange('phonenumber')}  
-                                />
+                            <div>
+                                <div style={styles.containers} > 
+                                    <TextField
+                                    style={styles.textfield}
+                                    id="outlined-adornment-phonenumber"
+                                    variant="outlined"
+                                    label="Số điện thoại"
+                                    value={this.state.phonenumber}
+                                    onChange={this.handleChange('phonenumber')}  
+                                    />
 
-                                <TextField
-                                style={styles.textfield}
-                                id="outlined-adornment-username"
-                                variant="outlined"
-                                label="Tên đăng nhập"
-                                value={this.state.username}
-                                onChange={this.handleChange('username')}  
-                                />
+                                    <TextField
+                                    style={styles.textfield}
+                                    id="outlined-adornment-username"
+                                    variant="outlined"
+                                    label="Tên đăng nhập"
+                                    value={this.state.username}
+                                    onChange={this.handleChange('username')}  
+                                    />
 
-                                <TextField
-                                style={styles.textfield}
-                                id="outlined-adornment-password"
-                                variant="outlined"
-                                type={this.state.showPassword ? 'text' : 'password'}
-                                label="Mật khẩu"
-                                value={this.state.password}
-                                onChange={this.handleChange('password')}
-                                InputProps={{
-                                    endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                        aria-label="Toggle password visibility"
-                                        onClick={this.handleClickShowPassword}
-                                        >
-                                        {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                    ),
-                                }}
-                                />
+                                    <TextField
+                                    style={styles.textfield}
+                                    id="outlined-adornment-password"
+                                    variant="outlined"
+                                    type={this.state.showPassword ? 'text' : 'password'}
+                                    label="Mật khẩu"
+                                    value={this.state.password}
+                                    onChange={this.handleChange('password')}
+                                    InputProps={{
+                                        endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                            aria-label="Toggle password visibility"
+                                            onClick={this.handleClickShowPassword}
+                                            >
+                                            {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                        ),
+                                    }}
+                                    />
 
-                                <TextField
-                                style={styles.textfield}
-                                id="outlined-adornment-password1"
-                                variant="outlined"
-                                type={this.state.showPassword ? 'text' : 'password'}
-                                label="Nhập lại mật khẩu"
-                                value={this.state.password1}
-                                onChange={this.handleChange('password1')}
-                                InputProps={{
-                                    endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                        aria-label="Toggle password visibility"
-                                        onClick={this.handleClickShowPassword}
-                                        >
-                                        {this.state.showPassword1 ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                    ),
-                                }}
-                                />
+                                    <TextField
+                                    style={styles.textfield}
+                                    id="outlined-adornment-password1"
+                                    variant="outlined"
+                                    type={this.state.showPassword ? 'text' : 'password'}
+                                    label="Nhập lại mật khẩu"
+                                    value={this.state.password1}
+                                    onChange={this.handleChange('password1')}
+                                    InputProps={{
+                                        endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                            aria-label="Toggle password visibility"
+                                            onClick={this.handleClickShowPassword}
+                                            >
+                                            {this.state.showPassword1 ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                        ),
+                                    }}
+                                    />
+                                </div>
                                 <Fab variant="extended"
-                                 aria-label="Delete" 
-                                 style={styles.registers} 
-                                 onClick={this.onClickSignup}
-                                 disabled={this.props.signupData.startSignup }
+                                    aria-label="Delete" 
+                                    style={styles.registers} 
+                                    onClick={this.onClickSignup}
+                                    disabled={this.props.signupData.startSignup }
                                 >
-                                 Đăng ký
+                                    Đăng ký
                                 </Fab>
-
                             </div>
                         )
                     }
@@ -334,7 +337,6 @@ class Login extends Component {
                             <Alert title="Successfull" onClose={this.props.handeErrorSignup}> Đăng ký thàng công!!! </Alert>
                         )
                     }
-                    </div>
                 </div>
             </div>
         )
