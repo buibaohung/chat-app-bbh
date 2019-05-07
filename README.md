@@ -1,6 +1,13 @@
 # chat-app-bbh
 
 https://chat-app-bbh.herokuapp.com/
+#  Mark conversation as read
+
+  Hover on the chat box
+  
+  Lick on the input 
+
+  Click user card
 # User1
 
   Username: hungdeptrai
