@@ -5,7 +5,7 @@ https://chat-app-bbh.herokuapp.com/
 
   Hover on the chat box
   
-  Lick on the input 
+  Click on the input 
 
   Click user card
 # User1
